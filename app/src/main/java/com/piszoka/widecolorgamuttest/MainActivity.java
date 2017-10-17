@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         addImage(cradle, R.drawable.img_01_adobergb, false, "1-b) Adobe RGB", CHAPTER_COLOR_1);
         addImage(cradle, R.drawable.img_01_displayp3, false, "1-c) DisplayP3", CHAPTER_COLOR_1);
         addImage(cradle, R.drawable.img_01_rommrgb, false, "1-d) Romm RGB", CHAPTER_COLOR_1);
-        addImage(cradle, R.drawable.img_01_prophotorgb, false, "1-e) ProPhot RGB", CHAPTER_COLOR_1);
+        addImage(cradle, R.drawable.img_01_prophotorgb, false, "1-e) ProPhoto RGB", CHAPTER_COLOR_1);
 
 
         addChapter(cradle,
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         addImage(cradle, R.drawable.img_02_adobergb, false, "2-b) Adobe RGB", CHAPTER_COLOR_2);
         addImage(cradle, R.drawable.img_02_displayp3, false, "2-c) DisplayP3", CHAPTER_COLOR_2);
         addImage(cradle, R.drawable.img_02_rommrgb, false, "2-d) Romm RGB", CHAPTER_COLOR_2);
-        addImage(cradle, R.drawable.img_02_prophotorgb, false, "2-e) ProPhot RGB", CHAPTER_COLOR_2);
+        addImage(cradle, R.drawable.img_02_prophotorgb, false, "2-e) ProPhoto RGB", CHAPTER_COLOR_2);
 
 
         addChapter(cradle,
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         addImage(cradle, R.drawable.img_01_adobergb, true, "3-b) Adobe RGB", CHAPTER_COLOR_3);
         addImage(cradle, R.drawable.img_01_displayp3, true, "3-c) DisplayP3", CHAPTER_COLOR_3);
         addImage(cradle, R.drawable.img_01_rommrgb, true, "3-d) Romm RGB", CHAPTER_COLOR_3);
-        addImage(cradle, R.drawable.img_01_prophotorgb, true, "3-e) ProPhot RGB", CHAPTER_COLOR_3);
+        addImage(cradle, R.drawable.img_01_prophotorgb, true, "3-e) ProPhoto RGB", CHAPTER_COLOR_3);
 
 
         addChapter(cradle,
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         addImage(cradle, R.drawable.img_02_adobergb, true, "4-b) Adobe RGB", CHAPTER_COLOR_4);
         addImage(cradle, R.drawable.img_02_displayp3, true, "4-c) DisplayP3", CHAPTER_COLOR_4);
         addImage(cradle, R.drawable.img_02_rommrgb, true, "4-d) Romm RGB", CHAPTER_COLOR_4);
-        addImage(cradle, R.drawable.img_02_prophotorgb, true, "4-e) ProPhot RGB", CHAPTER_COLOR_4);
+        addImage(cradle, R.drawable.img_02_prophotorgb, true, "4-e) ProPhoto RGB", CHAPTER_COLOR_4);
     }
 
 
