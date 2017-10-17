@@ -1,0 +1,17 @@
+.DS_Store
+*.apk
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/**/*
+.idea/
+
+# Gradle
+.gradle/
+build/
+release/
+
+# Local configuration file (sdk path, etc)
+local.properties
