@@ -1,4 +1,4 @@
-# WideColorGamutTest
+# WideGamutColorTest
 Testing "Wide-gamut color" capabilities for Android Oreo
 
 One new feature in Android Oreo is the Wide-gamut color handling. This app (Android Oreo only) helps to to test and understand this new feature.
