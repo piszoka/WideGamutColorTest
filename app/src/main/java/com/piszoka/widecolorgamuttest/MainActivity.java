@@ -1,8 +1,11 @@
 package com.piszoka.widecolorgamuttest;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorSpace;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+@SuppressLint("SetTextI18n")
 public class MainActivity extends AppCompatActivity {
 
     @ColorInt
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         final ViewGroup cradle = findViewById(R.id.cradle);
+
+        addDeviceInfo(cradle);
 
         addChapter(cradle,
                 "Testcases 1",
@@ -104,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @SuppressLint("SetTextI18n")
     private void addImage(
             @NonNull ViewGroup cradle,
             @DrawableRes int imageRes,
@@ -121,14 +126,16 @@ public class MainActivity extends AppCompatActivity {
         titleTv.setText(title);
         titleTv.setBackgroundColor(titleBgColor);
 
+
         BitmapFactory.Options opts = new BitmapFactory.Options();
 
         opts.inJustDecodeBounds = true;
         BitmapFactory.decodeResource(getResources(), imageRes, opts);
 
+        ColorSpace outColorSpace = opts.outColorSpace;
         text1Tv.setText("Before loading (just decode bounds)"
                 + "\n* ColorSpace: "
-                + opts.outColorSpace.getName()
+                + ((null == outColorSpace) ? "null" : outColorSpace.getName())
                 + "\n* Bitmap.Conf: "
                 + opts.outConfig);
 
@@ -136,15 +143,44 @@ public class MainActivity extends AppCompatActivity {
         opts.inJustDecodeBounds = false;
         if (forceScRGB) opts.inPreferredConfig = Bitmap.Config.RGBA_F16;
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), imageRes, opts);
-        imageView.setImageBitmap(bmp);
-        cradle.addView(entryView);
 
-        text2Tv.setText("After loading"
-                + "\n* ColorSpace: "
-                + bmp.getColorSpace().getName()
-                + "\n* Bitmap.Conf: "
-                + bmp.getConfig());
+        if (null == bmp) {
+            text2Tv.setText("Image couldn't be loaded");
+        } else {
+            imageView.setImageBitmap(bmp);
+
+            ColorSpace bmpColorSpace = bmp.getColorSpace();
+            text2Tv.setText("After loading"
+                    + "\n* ColorSpace: "
+                    + ((null == bmpColorSpace) ? "null" : bmpColorSpace.getName())
+                    + "\n* Bitmap.Conf: "
+                    + bmp.getConfig());
+        }
+
+        cradle.addView(entryView);
     }
 
+
+    private void addDeviceInfo(@NonNull ViewGroup cradle) {
+
+        String strModel = Build.MODEL;
+        if (!Build.MODEL.equals(Build.DEVICE)) {
+            strModel += " (" + Build.DEVICE + ")";
+        }
+
+        String strBuild = Build.ID;
+        if (!Build.MODEL.equals(Build.PRODUCT)) {
+            strBuild += " (" + Build.PRODUCT + ")";
+        }
+
+        Configuration conf = getResources().getConfiguration();
+        String deviceInfoTxt = "Model=" + strModel
+                + "\nBuild=" + strBuild
+                + "\nRelease=" + Build.VERSION.RELEASE
+                + "\nisScreenWideColorGamut=" + conf.isScreenWideColorGamut()
+                + "\nisScreenHdr=" + conf.isScreenHdr();
+
+        addChapter(cradle, "Device info", deviceInfoTxt, 0xffe0e0e0);
+    }
 
 }
