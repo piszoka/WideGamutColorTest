@@ -8,3 +8,4 @@ Infos and resources:
 * [ColorSpace](https://developer.android.com/reference/android/graphics/ColorSpace.html)
 * [Enhancing Graphics with Wide Color Content](https://developer.android.com/training/wide-color-gamut/index.html)
 * [display-p3 ImageView Sample](https://github.com/googlesamples/android-ndk/tree/master/display-p3)
+* [G+ thread: color profiles and display calibration](https://plus.google.com/+supercurioFrancoisSimond/posts/jQpmonmtW3c)
